@@ -1,0 +1,39 @@
+.cadForm{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cadForm form{
+  width: 60%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:  rgb(44, 45, 45);
+  border: solid 1px #ccc;
+  padding: 5px;
+  box-shadow: 9px 9px 33px 0px rgba(0,0,0,0.54);
+}
+.cadForm form label{
+  width: 70%;
+  margin: 15px;
+}
+.cadForm h1{
+  color: rgba(0,0,0,0.54);
+}
+.cadForm form label input{
+  width: 100%;
+  min-height: 25px;
+  padding: 2px;
+}
+.cadForm form input[type="submit"]{
+  width: 30%;
+  min-height: 30px;
+  font-size: 19px;
+  background-color:rgba(0,0,0,0.54) ;
+  color: white;
+  border: none;
+}

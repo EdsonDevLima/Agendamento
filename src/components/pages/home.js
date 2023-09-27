@@ -1,26 +1,30 @@
 import Style from "./home.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [ConfirmPassword, setConfPassword] = useState("");
   const newUser = { name, email, password, ConfirmPassword };
-
+  const navigate = useNavigate();
   const CreateNewUser = async () => {
     const response = await fetch("http://localhost:4000", {
       method: "POST",
       headers: { "content-type": "aplication/json" },
       body: JSON.stringify(newUser),
     });
-    console.log(response);
+    return response;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newUser);
-    CreateNewUser();
+    const data = await CreateNewUser();
+    if (data.ok) {
+      localStorage.setItem("@token", data);
+    }
+    navigate("/login");
   };
 
   return (

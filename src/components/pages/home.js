@@ -8,8 +8,19 @@ const Home = () => {
   const [ConfirmPassword, setConfPassword] = useState("");
   const newUser = { name, email, password, ConfirmPassword };
 
+  const CreateNewUser = async () => {
+    const response = await fetch("http://localhost:4000", {
+      method: "POST",
+      headers: { "content-type": "aplication/json" },
+      body: JSON.stringify(newUser),
+    });
+    console.log(response);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(newUser);
+    CreateNewUser();
   };
 
   return (
